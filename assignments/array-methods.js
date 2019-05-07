@@ -60,9 +60,17 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 //Create new array -> fullName 
 //for each entry in old array find first and last name
 //return first and last name 
+let fullName = [];
+
+runners.forEach(function(newNames) {
+    let bothNames = `${newNames.first_name} ${newNames.last_name}`;  
+    fullName.push(bothNames)
+});
+console.log(fullName);
 // let fullName = runners.forEach((id) => {
-//     return id.first_name, id.last_name;
+//     return id.first_name && id.last_name;
 // });
+
 // console.log(fullName);
 
 // // ==== Challenge 2: Use .map() ====
@@ -72,10 +80,16 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 //create new array called allCaps -->
 //map data set to manipulate first names into all caps
 //return each firstname as uppercase 
-// let allCaps = runners.map((first_name) => {
-//     return first_name.toUpperCase();
-// });
-// console.log(allCaps); 
+let allCaps = [];
+
+runners.map(function(newerNames) {
+    let upperNames = () => {
+        return newerNames.toUpperCase();
+    }
+    return allCaps.push(upperNames)
+});
+
+console.log(allCaps); 
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
@@ -104,10 +118,30 @@ let ticketPriceTotal = runners.reduce((total, id) => {
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
-// Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
+// Now that you have used .forEach(), .map(), .filter(), and .reduce().  
+//I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  
+//Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 --> Filter donation list by those who gave over $250
+let overOneHundred = runners.filter((id) => {
+    return id.donation > 250;
+});
+console.log(overOneHundred);
 
-// Problem 2
 
-// Problem 3
+// Problem 2 --> Find the first and last name for the last entry
+let lastName = runners.sort(function(nameA, nameB){ 
+    if (nameA.last_name < nameB.last_name){
+        return -1;
+    }
+    return 1;
+});
+console.log(lastName);
+
+
+
+// Problem 3 -->Find the runners who work for Skinix or Skinte
+let skinixSkinte = runners.filter((id) => {
+    return id.company_name === "Skinte" || id.company_name === "Skinix";
+});
+console.log(skinixSkinte);

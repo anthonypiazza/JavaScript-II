@@ -79,16 +79,23 @@ multiplyNums(3, 6, function(mult) {
 //   // Pass true to the callback if it is, otherwise pass false.
 // }
 
-function contains(item, list, cb) {
-    if cb(list.item {
-        return true;
-    }
-    return false;
+function contains(item, list, cb) {  
+  cb(list.includes(item));
 }
-
-contains(Gum, items, function(present) {
-    console.log(present)
+  
+contains('Pencil', items, function(present) {
+  console.log(present)
 });
+
+
+// function contains(item, list, cb) {
+//   if cb(list.includes(item)) === true {
+//     return true;
+// }
+
+// contains(Gum, items, function(present) {
+//     console.log(present)
+// });
 
 // /* STRETCH PROBLEM */
 
